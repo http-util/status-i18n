@@ -1,0 +1,19 @@
+{
+  "name": "http-status-i18n",
+  "version": "0.1.0",
+  "description": "HTTP status and message mapping, i18n supported.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muwenzi/http-status-i18n.git"
+  },
+  "author": "Kimi Gao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muwenzi/http-status-i18n/issues"
+  },
+  "homepage": "https://github.com/muwenzi/http-status-i18n#readme"
+}
