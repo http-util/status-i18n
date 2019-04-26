@@ -5,8 +5,11 @@ var config = require('./config.json');
 var defaultLanguage = config.defaultLanguage;
 
 function getUserLanguage(lang) {
-  if (typeof lang === 'string' && config.languages.includes(lang)) {
-    return lang
+  if (typeof lang === 'string') {
+    lang = lang.toLowerCase()
+    if (config.languages.includes(lang)) {
+      return lang
+    }
   }
   return config.defaultLanguage;
 }

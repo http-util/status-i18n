@@ -44,7 +44,7 @@ status[700] // => undefined
 
 ### status(code, language)
 
-Map of `code` to `status message` with specific language. The default browser language is assumed to be `en-us`
+Map of `code` to `status message` with specific language. The default browser language is assumed to be `en-us`.
 
 ```js
 status(401, 'zh-cn') // => '无权限'

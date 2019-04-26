@@ -15,12 +15,10 @@ function populateStatusesMap (statuses, codes) {
   Object.keys(codes).forEach(function forEachCode (code) {
     var message = codes[code]
     var status = Number(code)
-
     // Populate properties
     statuses[status] = message
     statuses[message] = status
     statuses[message.toLowerCase()] = status
-
     // Add to array
     arr.push(status)
   })
@@ -36,7 +34,7 @@ function status (code, lang, useBrowserDefaultLang) {
   if (typeof code === 'number') {
     if (!status[code]) return
   } else {
-    throw new TypeError('code must be a number or number')
+    throw new TypeError('http code must be a number')
   }
   return status[code]
 }
