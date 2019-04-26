@@ -13,5 +13,7 @@ node_js:
 cache:
   directories:
     - "node_modules"
+script:
+  - npm test
 notifications:
     slack: g-explorer:81CbfYw9kEml7k1QcXQkGfrB
