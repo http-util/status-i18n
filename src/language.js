@@ -17,16 +17,12 @@ function getUserLanguage(lang) {
 var $translations = {};
 
 function getTranslations() {
-  if ($translations.length) {
+  if (Object.keys($translations).length) {
     return $translations;
   }
 
-  var translations = $translations || {};
+  var translations = $translations;
   var languages = config.languages;
-
-  if (Object.keys(translations).length) {
-    return translations;
-  }
 
   languages.forEach(function (lang) {
     try {
@@ -36,10 +32,8 @@ function getTranslations() {
     }
   });
 
-  /**
-   * The locales have to be in the same order as they are defined in config.json
-   */
   var defaultTranslations = translations[defaultLanguage];
+
   Object.keys(defaultTranslations).forEach(function (key) {
     languages.forEach(function (lang) {
       translations[lang] = translations[lang] || {};

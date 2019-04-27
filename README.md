@@ -4,6 +4,7 @@
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Node.js Version][node-version-image]][node-version-url]
 [![Build Status][travis-image]][travis-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
 
 HTTP status and message mapping, i18n supported.
 
@@ -60,6 +61,6 @@ status(401) // => 'Unauthorized'
 [travis-image]: https://img.shields.io/travis/muwenzi/http-status-i18n.svg?style=flat-square
 [travis-url]: https://travis-ci.org/muwenzi/http-status-i18n
 [coveralls-image]: https://img.shields.io/coveralls/muwenzi/http-status-i18n.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/r/muwenzi/http-status-i18n?branch=master
+[coveralls-url]: https://coveralls.io/github/muwenzi/http-status-i18n?branch=master
 [downloads-image]: https://img.shields.io/npm/dm/http-status-i18n.svg?style=flat-square
 [downloads-url]: https://npmjs.org/package/http-status-i18n

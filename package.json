@@ -3,20 +3,32 @@
   "version": "0.1.1",
   "description": "HTTP status and message mapping, i18n supported.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
-  },
+  "author": "Kimi Gao",
+  "license": "MIT",
+  "keywords": [
+    "http",
+    "status",
+    "error",
+    "i18n",
+    "translation"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/muwenzi/http-status-i18n.git"
   },
-  "author": "Kimi Gao",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/muwenzi/http-status-i18n/issues"
   },
+  "homepage": "https://github.com/muwenzi/http-status-i18n#readme",
   "engines": {
     "node": ">= 0.8"
   },
-  "homepage": "https://github.com/muwenzi/http-status-i18n#readme"
+  "scripts": {
+    "test": "ava",
+    "test-cov": "nyc --reporter=lcov ava"
+  },
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "nyc": "^14.0.0"
+  }
 }
