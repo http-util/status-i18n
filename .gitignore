@@ -61,10 +61,20 @@ typings/
 # next.js build output
 .next
 
+# OS X
+.DS_Store*
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+.directory
+*~
+
 # IDE
 .vscode
 .idea
-
-# test
-.nyc_output
-coverage

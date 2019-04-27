@@ -23,6 +23,12 @@
   "engines": {
     "node": ">= 0.8"
   },
+  "files": [
+    "src",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "test": "ava",
     "test-cov": "nyc --reporter=lcov ava"
