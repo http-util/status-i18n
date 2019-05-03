@@ -22,10 +22,6 @@ var status = require('http-status-i18n')
 import status from 'http-status-i18n'
 ```
 
-### status.STATUS_CODES
-
-Returns an object which maps status codes to status messages.
-
 ### status.BROWSER_LANG
 
 Returns a lowercase string of default browser language set by user.
