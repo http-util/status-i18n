@@ -7,9 +7,6 @@ status.BROWSER_LANG = typeof window !== 'undefined' &&
 
 var codes = language.getTranslations()[language.getUserLanguage()];
 
-// status code to message map
-status.STATUS_CODES = codes;
-
 // array of status codes
 status.codes = populateStatusesMap(status, codes);
 
@@ -30,18 +27,17 @@ function populateStatusesMap(statuses, codes) {
 
 function status(code, lang) {
   var codes = language.getTranslations()[language.getUserLanguage(lang)];
-  // status code to message map
-  status.STATUS_CODES = codes;
   // array of status codes
-  status.codes = populateStatusesMap(status, codes);
+  var statuses = {};
+  populateStatusesMap(statuses, codes);
 
   if (typeof code === 'number') {
-    if (!status[code]) return;
+    if (!statuses[code]) return;
   } else {
     return;
   }
 
-  return status[code];
+  return statuses[code];
 }
 
 module.exports = status;

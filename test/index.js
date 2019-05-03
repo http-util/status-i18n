@@ -5,6 +5,7 @@ import enus from '../src/locales/en-us.json'
 import zhcn from '../src/locales/zh-cn.json'
 
 test('status[code] should return correct message when code is valid', t => {
+  status(401, 'zh-cn');
   [306, 415, '415'].forEach(code => {
     t.regex(status[code], /^[a-z\s()]+$/i)
   })
@@ -63,17 +64,6 @@ test('status(code, lang) should return correct message when lang is invalid stri
 test('status(code, lang) should return correct message when lang default browser language', t => {
   status.BROWSER_LANG = 'zh-cn'
   t.is(status(401, status.BROWSER_LANG), zhcn[401])
-})
-
-test('status.STATUS_CODES should be a map of code to message', t => {
-  status() // reset
-  t.is(status.STATUS_CODES[200], 'OK')
-})
-
-test('status.STATUS_CODES should include codes from Node.js', t => {
-  Object.keys(http.STATUS_CODES).forEach(code => {
-    t.truthy(status.STATUS_CODES[code], 'contains ' + code)
-  })
 })
 
 test('status.codes should include codes from Node.js', t => {
