@@ -1,6 +1,6 @@
 {
   "name": "http-status-i18n",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "HTTP status and message mapping, i18n supported.",
   "main": "index.js",
   "author": "Kimi Gao",
