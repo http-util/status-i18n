@@ -1,7 +1,7 @@
 {
   "name": "http-status-i18n",
   "version": "0.2.0",
-  "description": "HTTP status and message mapping, i18n supported.",
+  "description": "Make HTTP status message support i18n",
   "main": "index.js",
   "author": "Kimi Gao",
   "license": "MIT",
@@ -14,14 +14,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/muwenzi/http-status-i18n.git"
+    "url": "git+https://github.com/Kimi-Gao/http-status-i18n.git"
   },
   "bugs": {
-    "url": "https://github.com/muwenzi/http-status-i18n/issues"
+    "url": "https://github.com/Kimi-Gao/http-status-i18n/issues"
   },
-  "homepage": "https://github.com/muwenzi/http-status-i18n#readme",
+  "homepage": "https://github.com/Kimi-Gao/http-status-i18n",
   "engines": {
-    "node": ">= 0.8"
+    "node": ">= 8"
   },
   "files": [
     "src",
