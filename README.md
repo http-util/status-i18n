@@ -50,13 +50,13 @@ status(401, status.BROWSER_LANG) // => 'Unauthorized'
 status(401) // => 'Unauthorized'
 ```
 
-[npm-image]: https://img.shields.io/npm/v/http-status-i18n.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/http-status-i18n.svg
 [npm-url]: https://npmjs.org/package/http-status-i18n
-[node-version-image]: https://img.shields.io/node/v/http-status-i18n.svg?style=flat-square
+[node-version-image]: https://img.shields.io/node/v/http-status-i18n.svg
 [node-version-url]: https://nodejs.org/en/download
-[travis-image]: https://img.shields.io/travis/muwenzi/http-status-i18n.svg?style=flat-square
-[travis-url]: https://travis-ci.org/muwenzi/http-status-i18n
-[coveralls-image]: https://img.shields.io/coveralls/muwenzi/http-status-i18n.svg?style=flat-square
-[coveralls-url]: https://coveralls.io/github/muwenzi/http-status-i18n?branch=master
-[downloads-image]: https://img.shields.io/npm/dm/http-status-i18n.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/Kimi-Gao/http-status-i18n.svg
+[travis-url]: https://travis-ci.org/Kimi-Gao/http-status-i18n
+[coveralls-image]: https://img.shields.io/coveralls/Kimi-Gao/http-status-i18n.svg
+[coveralls-url]: https://coveralls.io/github/Kimi-Gao/http-status-i18n?branch=master
+[downloads-image]: https://img.shields.io/npm/dm/http-status-i18n.svg
 [downloads-url]: https://npmjs.org/package/http-status-i18n
