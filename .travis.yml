@@ -1,12 +1,5 @@
 language: node_js
 node_js:
-  - "0.8"
-  - "0.10"
-  - "0.12"
-  - "4"
-  - "5"
-  - "6"
-  - "7"
   - "8"
   - "9"
   - "10"
@@ -23,8 +16,8 @@ before_install:
   # Setup Node.js version-specific dependencies
   - |
     # ava and nyc for testing
-    # - remove on Node.js < 6
-    if [[ "$(cut -d. -f1 <<< "$TRAVIS_NODE_VERSION")" -lt 6 ]]; then
+    # - remove on Node.js < 8
+    if [[ "$(cut -d. -f1 <<< "$TRAVIS_NODE_VERSION")" -lt 8 ]]; then
       npm rm --save-dev ava
       npm rm --save-dev nyc
     fi
