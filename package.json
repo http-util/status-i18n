@@ -1,5 +1,5 @@
 {
-  "name": "http-status-i18n",
+  "name": "@http-util/status-i18n",
   "version": "0.2.0",
   "description": "Make HTTP status message support i18n",
   "main": "index.js",

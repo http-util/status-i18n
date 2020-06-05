@@ -1,4 +1,4 @@
-# http-status-i18n
+# status-i18n
 
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
@@ -11,15 +11,15 @@ HTTP status and message mapping, i18n supported.
 ## Installation
 
 ```sh
-$ npm install http-status-i18n
+$ npm install @http-util/status-i18n
 ```
 
 ## API
 
 ```js
-var status = require('http-status-i18n')
+var status = require('@http-util/status-i18n');
 // or 
-import status from 'http-status-i18n'
+import status from '@http-util/status-i18n';
 ```
 
 ### status.BROWSER_LANG
@@ -50,13 +50,13 @@ status(401, status.BROWSER_LANG) // => 'Unauthorized'
 status(401) // => 'Unauthorized'
 ```
 
-[npm-image]: https://img.shields.io/npm/v/http-status-i18n.svg
-[npm-url]: https://npmjs.org/package/http-status-i18n
-[node-version-image]: https://img.shields.io/node/v/http-status-i18n.svg
-[node-version-url]: https://nodejs.org/en/download
-[travis-image]: https://img.shields.io/travis/Kimi-Gao/http-status-i18n.svg
-[travis-url]: https://travis-ci.org/Kimi-Gao/http-status-i18n
-[coveralls-image]: https://img.shields.io/coveralls/Kimi-Gao/http-status-i18n.svg
-[coveralls-url]: https://coveralls.io/github/Kimi-Gao/http-status-i18n?branch=master
-[downloads-image]: https://img.shields.io/npm/dm/http-status-i18n.svg
-[downloads-url]: https://npmjs.org/package/http-status-i18n
+[npm-image]: https://img.shields.io/npm/v/@http-util/status-i18n.svg
+[npm-url]: https://npmjs.org/package/@http-util/status-i18n
+[node-version-image]: https://img.shields.io/node/v/@http-util/status-i18n.svg
+[node-version-url]: https://www.npmjs.com/package/@http-util/status-i18n
+[travis-image]: https://img.shields.io/travis/http-util/status-i18n.svg
+[travis-url]: https://travis-ci.org/http-util/status-i18n
+[coveralls-image]: https://img.shields.io/coveralls/http-util/status-i18n.svg
+[coveralls-url]: https://coveralls.io/github/http-util/status-i18n?branch=master
+[downloads-image]: https://img.shields.io/npm/dm/@http-util/status-i18n.svg
+[downloads-url]: https://npmjs.org/package/@http-util/status-i18n
