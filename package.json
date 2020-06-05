@@ -14,12 +14,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kimi-Gao/http-status-i18n.git"
+    "url": "git+https://github.com/http-util/status-i18n.git"
   },
   "bugs": {
-    "url": "https://github.com/Kimi-Gao/http-status-i18n/issues"
+    "url": "https://github.com/http-util/status-i18n/issues"
   },
-  "homepage": "https://github.com/Kimi-Gao/http-status-i18n",
+  "homepage": "https://github.com/http-util/status-i18n",
   "engines": {
     "node": ">= 8"
   },
