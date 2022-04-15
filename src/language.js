@@ -1,50 +1,50 @@
-"use strict";
+'use strict'
+import { createRequire } from 'module'
 
-var config = require('./config.json');
+import config from './config.json'
 
-var defaultLanguage = config.defaultLanguage;
+const require = createRequire(import.meta.url)
 
-function getUserLanguage(lang) {
+const defaultLanguage = config.defaultLanguage
+
+export function getUserLanguage (lang) {
   if (typeof lang === 'string') {
     lang = lang.toLowerCase()
+
     if (config.languages.includes(lang)) {
       return lang
     }
   }
-  return config.defaultLanguage;
+
+  return config.defaultLanguage
 }
 
-var $translations = {};
+const $translations = {}
 
-function getTranslations() {
+export function getTranslations () {
   if (Object.keys($translations).length) {
-    return $translations;
+    return $translations
   }
 
-  var translations = $translations;
-  var languages = config.languages;
+  const translations = $translations
+  const languages = config.languages
 
-  languages.forEach(function (lang) {
+  for (const language of languages) {
     try {
-      translations[lang] = require("./locales/".concat(lang, ".json"));
+      translations[language] = require(`./locales/${language}.json`)
     } catch (e) {
-      translations[lang] = require("./locales/".concat(defaultLanguage, ".json"));
+      translations[language] = require(`./locales/${defaultLanguage}.json`)
     }
-  });
+  }
 
-  var defaultTranslations = translations[defaultLanguage];
+  const defaultTranslations = translations[defaultLanguage]
 
-  Object.keys(defaultTranslations).forEach(function (key) {
-    languages.forEach(function (lang) {
-      translations[lang] = translations[lang] || {};
-      translations[lang][key] = translations[lang][key] || defaultTranslations[key];
-    });
-  });
-  return translations;
+  for (const defaultTranslation in defaultTranslations) {
+    for (const language of languages) {
+      translations[language] = translations[language] || {}
+      translations[language][defaultTranslation] = translations[language][defaultTranslation] || defaultTranslations[defaultTranslation]
+    }
+  }
+
+  return translations
 }
-
-;
-module.exports = {
-  getUserLanguage: getUserLanguage,
-  getTranslations: getTranslations
-};

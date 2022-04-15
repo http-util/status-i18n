@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/http-util/status-i18n",
   "engines": {
-    "node": ">= 8"
+    "node": ">= 10"
   },
   "files": [
     "src",
@@ -30,11 +30,23 @@
     "README.md"
   ],
   "scripts": {
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
     "test": "ava",
     "test-cov": "nyc --reporter=lcov ava"
   },
   "devDependencies": {
-    "ava": "^2.4.0",
-    "nyc": "^15.0.0"
+    "ava": "4.2.0",
+    "eslint": "7.32.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "5.2.0",
+    "nyc": "15.1.0"
+  },
+  "type": "module",
+  "ava": {
+    "nodeArguments": [
+      "--experimental-json-modules"
+    ]
   }
 }

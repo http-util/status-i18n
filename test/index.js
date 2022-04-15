@@ -1,6 +1,6 @@
 import http from 'http'
 import test from 'ava'
-import status from '..'
+import status from '../index.js'
 import enus from '../src/locales/en-us.json'
 import zhcn from '../src/locales/zh-cn.json'
 
@@ -12,7 +12,7 @@ test('status[code] should return correct message when code is valid', t => {
 })
 
 test('status[code] should return undefined when code is invalid', t => {
-  [{}, [], null, undefined, true, Symbol()].forEach(code => {
+  [{}, [], null, undefined, true, Symbol('')].forEach(code => {
     t.is(status[code], undefined)
   })
 })
@@ -28,7 +28,7 @@ test('status(code) should return undefined when code is empty', t => {
 })
 
 test('status(code) should return undefined when code is not a number', t => {
-  ['200', '', {}, [], null, undefined, true, Symbol()].forEach(code => {
+  ['200', '', {}, [], null, undefined, true, Symbol('')].forEach(code => {
     t.is(status(code), undefined)
   })
 })
@@ -52,7 +52,7 @@ test('status(code, lang) should return correct message when lang is valid lowerc
 })
 
 test('status(code, lang) should return correct message when lang is invalid type', t => {
-  [{}, [], null, undefined, true, Symbol()].forEach(lang => {
+  [{}, [], null, undefined, true, Symbol('')].forEach(lang => {
     t.is(status(401, lang), enus[401])
   })
 })

@@ -1,43 +1,46 @@
-'use strict';
+'use strict'
 
-var language = require('./src/language');
+import { getTranslations, getUserLanguage } from './src/language.js'
 
 status.BROWSER_LANG = typeof window !== 'undefined' &&
-  (window.navigator.userLanguage || window.navigator.language || '').toLowerCase();
+  (window.navigator.userLanguage || window.navigator.language || '').toLowerCase()
 
-var codes = language.getTranslations()[language.getUserLanguage()];
+const codes = getTranslations()[getUserLanguage()]
 
 // array of status codes
-status.codes = populateStatusesMap(status, codes);
+status.codes = populateStatusesMap(status, codes)
 
-function populateStatusesMap(statuses, codes) {
-  var arr = [];
-  Object.keys(codes).forEach(function forEachCode(code) {
-    var message = codes[code];
-    var status = Number(code);
+function populateStatusesMap (statuses, codes) {
+  const arr = []
+
+  for (const code in codes) {
+    const message = codes[code]
+    const status = Number(code)
     // Populate properties
-    statuses[status] = message;
-    statuses[message] = status;
-    statuses[message.toLowerCase()] = status;
+    statuses[status] = message
+    statuses[message] = status
+    statuses[message.toLowerCase()] = status
     // Add to array
-    arr.push(status);
-  });
-  return arr;
-}
-
-function status(code, lang) {
-  var codes = language.getTranslations()[language.getUserLanguage(lang)];
-  // array of status codes
-  var statuses = {};
-  populateStatusesMap(statuses, codes);
-
-  if (typeof code === 'number') {
-    if (!statuses[code]) return;
-  } else {
-    return;
+    arr.push(status)
   }
 
-  return statuses[code];
+  return arr
 }
 
-module.exports = status;
+export function status (code, lang) {
+  const codes = getTranslations()[getUserLanguage(lang)]
+  // array of status codes
+  const statuses = {}
+
+  populateStatusesMap(statuses, codes)
+
+  if (typeof code === 'number') {
+    if (!statuses[code]) return
+  } else {
+    return
+  }
+
+  return statuses[code]
+}
+
+export default status
