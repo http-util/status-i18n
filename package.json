@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/http-util/status-i18n",
   "engines": {
-    "node": ">= 10"
+    "node": ">=12.22 <16.14"
   },
   "files": [
     "src",
