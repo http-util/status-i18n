@@ -2,42 +2,15 @@ language: node_js
 node_js:
   - "12.22"
   - "16.13.2"
-cache:
-  directories:
-    - "node_modules"
-before_install:
-  # Configure npm
-  - |
-    # Skip updating shrinkwrap / lock
-    npm config set shrinkwrap false
-  # Setup Node.js version-specific dependencies
-  - |
-    # ava and nyc for testing
-    # - remove on Node.js < 8
-    if [[ "$(cut -d. -f1 <<< "$TRAVIS_NODE_VERSION")" -lt 8 ]]; then
-      npm rm --save-dev ava
-      npm rm --save-dev nyc
-    fi
-  # Update Node.js modules
-  - |
-    # Prune & rebuild node_modules
-    if [[ -d node_modules ]]; then
-      npm prune
-      npm rebuild
-    fi
+cache: yarn
 script:
   - |
-    # Run test script, depending on istanbul install
-    if [[ -n "$(npm -ps ls ava nyc)" ]]; then
-      npm run test-cov
-    else
-      exit 0
-    fi
+    # Run test script
+    yarn run test:coverage
 after_script:
   - |
     # Upload coverage to coveralls, if exists
     if [[ -f ./coverage/lcov.info ]]; then
-      npm install --save-dev coveralls@2
       coveralls < ./coverage/lcov.info
     fi
 notifications:
