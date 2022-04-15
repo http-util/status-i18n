@@ -4,7 +4,14 @@ import status from '../index.js'
 import enus from '../src/locales/en-us.json'
 import zhcn from '../src/locales/zh-cn.json'
 
-test('status[code] should return correct message when code is valid', t => {
+test('status[code] should return correct message when code is valid and short', t => {
+  status(401, 'zh');
+  [306, 415, '415'].forEach(code => {
+    t.regex(status[code], /^[a-z\s()]+$/i)
+  })
+})
+
+test('status[code] should return correct message when code is valid and long', t => {
   status(401, 'zh-cn');
   [306, 415, '415'].forEach(code => {
     t.regex(status[code], /^[a-z\s()]+$/i)
@@ -49,6 +56,10 @@ test('status(code, lang) should return correct message when lang is valid string
 
 test('status(code, lang) should return correct message when lang is valid lowercase string', t => {
   t.is(status(401, 'zh-cn'), zhcn[401])
+})
+
+test('status(code, lang) should return correct message when lang is valid short string', t => {
+  t.is(status(401, 'zh'), zhcn[401])
 })
 
 test('status(code, lang) should return correct message when lang is invalid type', t => {

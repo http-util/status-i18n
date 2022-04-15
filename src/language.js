@@ -11,8 +11,10 @@ export function getUserLanguage (lang) {
   if (typeof lang === 'string') {
     lang = lang.toLowerCase()
 
-    if (config.languages.includes(lang)) {
-      return lang
+    for (const configLanguage of config.languages) {
+      if ([configLanguage, configLanguage.split('-')[0]].includes(lang)) {
+        return configLanguage
+      }
     }
   }
 
