@@ -32,17 +32,17 @@
   "scripts": {
     "lint": "eslint --ext .js --ignore-path .gitignore .",
     "test": "ava",
-    "test:coverage": "nyc --reporter=lcov ava"
+    "test:coverage": "c8 --reporter=lcov ava"
   },
   "devDependencies": {
     "ava": "4.2.0",
+    "c8": "7.11.0",
     "coveralls": "3.1.1",
     "eslint": "8.13.0",
     "eslint-config-standard": "16.0.3",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "6.0.0",
-    "nyc": "15.1.0"
+    "eslint-plugin-promise": "6.0.0"
   },
   "type": "module",
   "ava": {
