@@ -18,7 +18,7 @@ $ npm install @http-util/status-i18n
 
 ```js
 var status = require('@http-util/status-i18n');
-// or 
+// or
 import status from '@http-util/status-i18n';
 ```
 
@@ -55,7 +55,7 @@ status(401) // => 'Unauthorized'
 [node-version-image]: https://img.shields.io/node/v/@http-util/status-i18n.svg
 [node-version-url]: https://www.npmjs.com/package/@http-util/status-i18n
 [travis-image]: https://img.shields.io/travis/http-util/status-i18n.svg
-[travis-url]: https://travis-ci.org/http-util/status-i18n
+[travis-url]: https://app.travis-ci.com/github/http-util/status-i18n
 [coveralls-image]: https://img.shields.io/coveralls/http-util/status-i18n.svg
 [coveralls-url]: https://coveralls.io/github/http-util/status-i18n?branch=master
 [downloads-image]: https://img.shields.io/npm/dm/@http-util/status-i18n.svg
