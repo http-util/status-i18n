@@ -1,7 +1,7 @@
 'use strict'
 import { createRequire } from 'module'
 
-import config from './config.json'
+import config from './config.json' assert { type: 'json' }
 
 const require = createRequire(import.meta.url)
 

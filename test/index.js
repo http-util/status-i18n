@@ -1,8 +1,8 @@
 import http from 'http'
 import test from 'ava'
 import status from '../index.js'
-import enus from '../src/locales/en-us.json'
-import zhcn from '../src/locales/zh-cn.json'
+import enus from '../src/locales/en-us.json' assert { type: 'json' }
+import zhcn from '../src/locales/zh-cn.json' assert { type: 'json' }
 
 test('status[code] should return correct message when code is valid and short', t => {
   status(401, 'zh');
