@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/http-util/status-i18n",
   "engines": {
-    "node": ">=16.14"
+    "node": ">=12"
   },
   "files": [
     "src",
@@ -44,10 +44,5 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.0.0"
   },
-  "type": "module",
-  "ava": {
-    "nodeArguments": [
-      "--experimental-json-modules"
-    ]
-  }
+  "type": "module"
 }

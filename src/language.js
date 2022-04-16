@@ -1,9 +1,7 @@
 'use strict'
-import { createRequire } from 'module'
 
-import config from './config.json' assert { type: 'json' }
-
-const require = createRequire(import.meta.url)
+import locales from './locales/index.js'
+import config from './config.js'
 
 const defaultLanguage = config.defaultLanguage
 
@@ -32,10 +30,10 @@ export function getTranslations () {
   const languages = config.languages
 
   for (const language of languages) {
-    try {
-      translations[language] = require(`./locales/${language}.json`)
-    } catch (e) {
-      translations[language] = require(`./locales/${defaultLanguage}.json`)
+    if (Object.keys(locales).includes(language)) {
+      translations[language] = locales[language]
+    } else {
+      translations[language] = locales[defaultLanguage]
     }
   }
 
