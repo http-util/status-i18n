@@ -46,6 +46,7 @@ Map of `code` to `status message` with specific language. The default browser la
 ```js
 status(401, 'zh-cn') // => '无权限'
 status(401, 'zh-CN') // => '无权限'
+status(401, 'zh') // => '无权限'
 status(401, status.BROWSER_LANG) // => 'Unauthorized'
 status(401) // => 'Unauthorized'
 ```
