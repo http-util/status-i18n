@@ -1,6 +1,6 @@
 {
   "name": "@http-util/status-i18n",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Make HTTP status message support i18n",
   "main": "index.js",
   "author": "Kimi Gao",
