@@ -24,8 +24,5 @@ jobs:
       - run: yarn install
       - run: yarn run lint
       - run: yarn run test:coverage
-      - run: |
-          # Upload coverage to coveralls, if exists
-          if [[ -f ./coverage/lcov.info ]]; then
-            yarn coveralls < ./coverage/lcov.info
-          fi
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
