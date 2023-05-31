@@ -27,5 +27,5 @@ jobs:
       - run: |
           # Upload coverage to coveralls, if exists
           if [[ -f ./coverage/lcov.info ]]; then
-            coveralls < ./coverage/lcov.info
+            yarn coveralls < ./coverage/lcov.info
           fi
