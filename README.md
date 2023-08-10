@@ -19,9 +19,9 @@ $ npm install @http-util/status-i18n
 ## API
 
 ```js
-var status = require('@http-util/status-i18n');
+import status from '@http-util/status-i18n'
 // or
-import status from '@http-util/status-i18n';
+var status = require('@http-util/status-i18n')
 ```
 
 ### status.BROWSER_LANG
