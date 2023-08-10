@@ -1,19 +1,43 @@
 name: CI
 
 on:
-  push:
-    branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+  push:
+    branches:
+      - alpha
+      - beta
+      - master
+      - renovate/**
 
 jobs:
+  prepare_jobs:
+    name: 'Prepare: job optimization'
+    runs-on: ubuntu-latest
+    outputs:
+      pr_found: ${{ steps.pr.outputs.pr_found }}
+    steps:
+      - name: Get current PR
+        id: pr
+        uses: 8BitJonny/gh-get-current-pr@2.2.0
+        with:
+          filterOutClosed: true
+          sha: ${{ github.event.pull_request.head.sha }}
+  release_semantic_dry:
+    needs: prepare_jobs
+    name: Release (semantic, dry)
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic-next.yml@0.40.17
+    if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
+    permissions:
+      contents: write
+    secrets:
+      PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    with:
+      DRY_RUN: true
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x, 20.x]
-
     steps:
       - uses: actions/checkout@v3
       - run: corepack enable
@@ -27,3 +51,11 @@ jobs:
       - run: pnpm run test:coverage
       - name: Coveralls
         uses: coverallsapp/github-action@v2
+  release_semantic:
+    needs: build
+    name: Release (semantic)
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic-next.yml@0.40.17
+    permissions:
+      contents: write
+    secrets:
+      PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
