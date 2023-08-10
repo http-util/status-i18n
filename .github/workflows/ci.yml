@@ -34,7 +34,9 @@ jobs:
     with:
       DRY_RUN: true
   build:
+    name: Build
     runs-on: ubuntu-latest
+    needs: release_semantic_dry
     strategy:
       matrix:
         node-version: [16.x, 20.x]
