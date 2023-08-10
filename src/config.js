@@ -4,6 +4,7 @@ export default {
     'de-de',
     'en-us',
     'zh-cn',
-    'ko-kr'
+    'ko-kr',
+    'ja-jp'
   ]
 }
