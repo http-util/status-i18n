@@ -1,41 +1,9 @@
 {
-  "name": "@http-util/status-i18n",
-  "version": "0.8.0",
-  "description": "Make HTTP status message support i18n",
-  "main": "index.js",
   "author": "Kimi Gao",
-  "license": "MIT",
-  "keywords": [
-    "http",
-    "status",
-    "error",
-    "i18n",
-    "translation"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/http-util/status-i18n.git"
-  },
   "bugs": {
     "url": "https://github.com/http-util/status-i18n/issues"
   },
-  "homepage": "https://github.com/http-util/status-i18n",
-  "engines": {
-    "node": ">=12"
-  },
-  "files": [
-    "src",
-    "index.js",
-    "index.d.ts",
-    "LICENSE",
-    "README.md"
-  ],
-  "scripts": {
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
-    "test": "ava",
-    "test:coverage": "c8 --reporter=lcov ava"
-  },
-  "packageManager": "pnpm@8.5.1",
+  "description": "Make HTTP status message support i18n",
   "devDependencies": {
     "ava": "5.3.0",
     "c8": "7.14.0",
@@ -46,5 +14,40 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.1.1"
   },
-  "type": "module"
+  "engines": {
+    "node": ">=12"
+  },
+  "files": [
+    "src",
+    "index.js",
+    "index.d.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "funding": {
+    "url": "https://github.com/sponsors/dargmuesli"
+  },
+  "homepage": "https://github.com/http-util/status-i18n",
+  "keywords": [
+    "http",
+    "status",
+    "error",
+    "i18n",
+    "translation"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "@http-util/status-i18n",
+  "packageManager": "pnpm@8.5.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/http-util/status-i18n.git"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "test": "ava",
+    "test:coverage": "c8 --reporter=lcov ava"
+  },
+  "type": "module",
+  "version": "0.8.0"
 }
