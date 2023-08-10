@@ -3,7 +3,7 @@
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Node.js Version][node-version-image]][node-version-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][ci-image]][ci-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
 HTTP status and message mapping, i18n supported.
@@ -51,12 +51,12 @@ status(401, status.BROWSER_LANG) // => 'Unauthorized'
 status(401) // => 'Unauthorized'
 ```
 
+[ci-image]: https://img.shields.io/github/actions/workflow/status/http-util/status-i18n/ci.yml
+[ci-url]: https://github.com/http-util/status-i18n/actions/workflows/ci.yml
 [npm-image]: https://img.shields.io/npm/v/@http-util/status-i18n.svg
 [npm-url]: https://npmjs.org/package/@http-util/status-i18n
 [node-version-image]: https://img.shields.io/node/v/@http-util/status-i18n.svg
 [node-version-url]: https://www.npmjs.com/package/@http-util/status-i18n
-[travis-image]: https://img.shields.io/travis/http-util/status-i18n.svg
-[travis-url]: https://app.travis-ci.com/github/http-util/status-i18n
 [coveralls-image]: https://img.shields.io/coveralls/http-util/status-i18n.svg
 [coveralls-url]: https://coveralls.io/github/http-util/status-i18n?branch=master
 [downloads-image]: https://img.shields.io/npm/dm/@http-util/status-i18n.svg
