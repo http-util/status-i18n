@@ -6,7 +6,9 @@
 [![Build Status][ci-image]][ci-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
-HTTP status and message mapping, i18n supported.
+HTTP status and message mapping, internationalized.
+
+Currently supported locales: `de-de`, `en-us`, `ja-jp`, `ko-kr`, `zh-cn`. Add your locale [like this](https://github.com/http-util/status-i18n/pull/48) now! 🎉
 
 ## Installation
 
