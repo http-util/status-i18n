@@ -11,21 +11,21 @@ on:
 
 jobs:
   prepare_jobs:
-    name: 'Prepare: job optimization'
+    name: "Prepare: job optimization"
     runs-on: ubuntu-latest
     outputs:
       pr_found: ${{ steps.pr.outputs.pr_found }}
     steps:
       - name: Get current PR
         id: pr
-        uses: 8BitJonny/gh-get-current-pr@2.2.0
+        uses: 8BitJonny/gh-get-current-pr@3.0.0
         with:
           filterOutClosed: true
           sha: ${{ github.event.pull_request.head.sha }}
   release_semantic_dry:
     needs: prepare_jobs
     name: Release (semantic, dry)
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.41.0
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@2.2.2
     if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
     permissions:
       contents: write
@@ -42,10 +42,10 @@ jobs:
       matrix:
         node-version: [18.x, 20.x]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: corepack enable
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: pnpm
@@ -57,7 +57,7 @@ jobs:
   release_semantic:
     needs: build
     name: Release (semantic)
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.41.0
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@2.2.2
     permissions:
       contents: write
     secrets:
