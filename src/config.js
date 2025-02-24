@@ -5,6 +5,7 @@ export default {
     'en-us',
     'zh-cn',
     'ko-kr',
-    'ja-jp'
+    'ja-jp',
+    'ru-ru'
   ]
 }
