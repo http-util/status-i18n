@@ -3,8 +3,9 @@ export default {
   languages: [
     'de-de',
     'en-us',
-    'zh-cn',
+    'ja-jp',
     'ko-kr',
-    'ja-jp'
+    'ru-ru',
+    'zh-cn'
   ]
 }
