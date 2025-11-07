@@ -1,65 +1,74 @@
 name: CI
 
+permissions: {}
+
 on:
   pull_request:
   push:
     branches:
       - alpha
       - beta
+      - main
       - master
       - renovate/**
 
 jobs:
-  prepare_jobs:
-    name: "Prepare: job optimization"
-    runs-on: ubuntu-latest
-    outputs:
-      pr_found: ${{ steps.pr.outputs.pr_found }}
-    steps:
-      - name: Get current PR
-        id: pr
-        uses: 8BitJonny/gh-get-current-pr@4.0.0
-        with:
-          filterOutClosed: true
-          filterOutDraft: true
+  ci-optimization:
+    name: CI optimization
+    uses: dargmuesli/github-actions/.github/workflows/ci-optimization.yml@714a68188444d710ffa3e9f35a05f6a9d420931d # 3.2.0
+    permissions:
+      pull-requests: read
   release_semantic_dry:
-    needs: prepare_jobs
+    needs: ci-optimization
+    if: needs.ci-optimization.outputs.continue == 'true'
     name: Release (semantic, dry)
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@2.3.16
-    if: needs.prepare_jobs.outputs.pr_found == 'false' || github.event_name == 'pull_request'
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@714a68188444d710ffa3e9f35a05f6a9d420931d # 3.2.0
     permissions:
       contents: write
+      id-token: write
     secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
     with:
       DRY_RUN: true
+      INSTALL_NODE_DEPENDENCIES: true
   build:
     name: Build
     runs-on: ubuntu-latest
     needs: release_semantic_dry
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [20.x, 24.x]
     steps:
-      - uses: actions/checkout@v4
-      - run: corepack enable
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Setup package manager
+        run: |
+          npm install -g corepack@latest
+          corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
         with:
-          node-version: ${{ matrix.node-version }}
           cache: pnpm
+          node-version: ${{ matrix.node-version }}
+
       - run: pnpm install
+
       - run: pnpm run lint
+
       - run: pnpm run test:coverage
+
       - name: Coveralls
-        uses: coverallsapp/github-action@v2
+        uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2.3.6
   release_semantic:
     needs: build
     name: Release (semantic)
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@2.3.16
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@714a68188444d710ffa3e9f35a05f6a9d420931d # 3.2.0
     permissions:
       contents: write
+      id-token: write
     secrets:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    with:
+      INSTALL_NODE_DEPENDENCIES: true
