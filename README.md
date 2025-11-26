@@ -32,7 +32,7 @@ Returns a lowercase string of default browser language set by user.
 
 Returns an array of all the status codes as `Integer`s.
 
-### status[code]
+### status\[code\]
 
 Map of `code` to `status message`, in the same format as the [Node.js http module](https://nodejs.org/dist/latest/docs/api/http.html#http_http_status_codes). `undefined` for invalid `code`s. The language has been set to default `en-us`.
 
