@@ -13,6 +13,12 @@
     "eslint": "9.39.1",
     "globals": "16.5.0"
   },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.2.2"
+    }
+  },
   "engines": {
     "node": ">=12"
   },
@@ -37,7 +43,6 @@
   "license": "MIT",
   "main": "index.js",
   "name": "@http-util/status-i18n",
-  "packageManager": "pnpm@8.5.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/http-util/status-i18n.git"
