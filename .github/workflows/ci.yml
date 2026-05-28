@@ -15,14 +15,14 @@ on:
 jobs:
   ci-optimization:
     name: CI optimization
-    uses: dargmuesli/github-actions/.github/workflows/ci-optimization.yml@714a68188444d710ffa3e9f35a05f6a9d420931d # 3.2.0
+    uses: dargmuesli/github-actions/.github/workflows/ci-optimization.yml@80b5e01f2dbaca72f21852f2cb24ce636a46fffa # 5.4.0
     permissions:
       pull-requests: read
   release_semantic_dry:
     needs: ci-optimization
     if: needs.ci-optimization.outputs.continue == 'true'
     name: Release (semantic, dry)
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@714a68188444d710ffa3e9f35a05f6a9d420931d # 3.2.0
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@80b5e01f2dbaca72f21852f2cb24ce636a46fffa # 5.4.0
     permissions:
       contents: write
       id-token: write
@@ -37,7 +37,7 @@ jobs:
     needs: release_semantic_dry
     strategy:
       matrix:
-        node-version: [20.x, 24.x]
+        node-version: [22.x, 26.x]
     steps:
       - name: Checkout repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -64,7 +64,7 @@ jobs:
   release_semantic:
     needs: build
     name: Release (semantic)
-    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@714a68188444d710ffa3e9f35a05f6a9d420931d # 3.2.0
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@80b5e01f2dbaca72f21852f2cb24ce636a46fffa # 5.4.0
     permissions:
       contents: write
       id-token: write

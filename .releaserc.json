@@ -1,0 +1,29 @@
+{
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {}
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits",
+        "presetConfig": {}
+      }
+    ],
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "pnpm version ${nextRelease.version} --git-tag-version=false --no-git-checks",
+        "publishCmd": "pnpm publish --no-git-checks"
+      }
+    ],
+    "@semantic-release/github",
+    "@semantic-release/git"
+  ],
+  "tagFormat": "${version}"
+}
